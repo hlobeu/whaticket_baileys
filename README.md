@@ -62,14 +62,14 @@ adiciona aqui, https://github.com/settings/keys
 
 ```bash
 cd ~
-git clone git@github.com:w3nder/unkv4.git
+git clone github.com/hlobeu/whaticket_baileys.git
 ```
 
 Crie um arquivo .env de backend e preencha com as informações correta:
 
 ```bash
-cp unkv4/backend/.env.example unkv4/backend/.env
-nano unkv4/backend/.env
+cp whaticket_baileys/backend/.env.example whaticket_baileys/backend/.env
+nano whaticket_baileys/backend/.env
 ```
 
 ```bash
@@ -89,11 +89,11 @@ DB_HOST=localhost
 
 DB_PORT=5432
 
-DB_USER=user
+DB_USER=admin
 
-DB_PASS=senha
+DB_PASS=123456
 
-DB_NAME=db_name
+DB_NAME=whaticket_baileys
 
 JWT_SECRET=kZaOTd+YZpjRUyyuQUpigJaEMk4vcW4YOymKPZX0Ts8=
 
@@ -131,7 +131,7 @@ FACEBOOK_APP_SECRET=
 Executa o npm install , cria o build cria as tabela e insere os registro padrão
 
 ```bash
-cd unkv4/backend
+cd whaticket_baileys/backend
 npm install
 npm run build
 npm run db:migrate
@@ -147,7 +147,7 @@ nano .env
 ```
 
 ```bash
-REACT_APP_BACKEND_URL=https://URL_DO_BACKEND(NAO E URL DO FRONTEND)
+REACT_APP_BACKEND_URL=https://URL_DO_BACKEND (NAO E URL DO FRONTEND)
 REACT_APP_HOURS_CLOSE_TICKETS_AUTO = 24
 REACT_APP_FACEBOOK_APP_ID=
 ```
