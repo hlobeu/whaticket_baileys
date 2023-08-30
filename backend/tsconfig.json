@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es5", "es6", "dom"],
+    "outDir": "./dist",
+    "strict": false,
+    "strictPropertyInitialization": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["**/*"],
+  "exclude": ["**/dist/**/*.d.ts", "./*.js", "dist", "node_modules", "public"]
+}
