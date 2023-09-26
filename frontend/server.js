@@ -1,4 +1,5 @@
 //simple express server to run frontend production build;
+require('dotenv').config();
 const express = require("express");
 const path = require("path");
 const app = express();
