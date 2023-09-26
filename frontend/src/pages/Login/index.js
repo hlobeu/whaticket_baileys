@@ -14,8 +14,8 @@ import Container from "@material-ui/core/Container";
 import { i18n } from "../../translate/i18n";
 
 import { AuthContext } from "../../context/Auth/AuthContext";
-let logoPath = `${process.env.REACT_APP_LOGO_LOGIN || "../../assets/logoLoginOption.png"}`;
-import logo from logoPath;
+//let logoPath = `${process.env.REACT_APP_LOGO_LOGIN || "../../assets/logoLoginOption.png"}`;
+import logo from process.env.REACT_APP_LOGO_LOGIN;
 
 
 // const Copyright = () => {
