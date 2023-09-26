@@ -29,10 +29,10 @@ import { i18n } from "../translate/i18n";
 import toastError from "../errors/toastError";
 import AnnouncementsPopover from "../components/AnnouncementsPopover";
 
-import logo from "../assets/logoPainelOption.png"; 
 import { socketConnection } from "../services/socket";
 import ChatPopover from "../pages/Chat/ChatPopover";
-
+import logoDefault from "../../assets/logoLoginOption.png";
+const logo = process.env.REACT_APP_LOGO || logoDefault;
 const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
