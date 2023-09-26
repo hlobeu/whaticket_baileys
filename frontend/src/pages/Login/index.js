@@ -22,8 +22,8 @@ const Copyright = () => {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
 			{"Copyleft "}
-			<Link color="inherit" href="https://github.com/canove">
-				Canove
+			<Link color="inherit" href="#">
+				---
 			</Link>{" "}
 			{new Date().getFullYear()}
 			{"."}
