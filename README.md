@@ -50,19 +50,11 @@ docker run -e TZ="America/Sao_Paulo" --name redis-unkbot -p 6379:6379 -d --resta
 
  Criar chave para fazer o clone de repositório privado
 
-```shell
-ssh-keygen -t ed25519 -C "your_email@example.com"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-cat ~/.ssh/id_ed25519.pub (copia o conteudo)
-adiciona aqui, https://github.com/settings/keys
-```
-
- Clonar este repositório:
+Clonar este repositório:
 
 ```bash
 cd ~
-git clone github.com/hlobeu/whaticket_baileys.git
+git clone https://github.com/hlobeu/whaticket_baileys.git
 ```
 
 Crie um arquivo .env de backend e preencha com as informações correta:
@@ -150,6 +142,7 @@ nano .env
 REACT_APP_BACKEND_URL=https://URL_DO_BACKEND (NAO E URL DO FRONTEND)
 REACT_APP_HOURS_CLOSE_TICKETS_AUTO = 24
 REACT_APP_FACEBOOK_APP_ID=
+PORT=3000
 ```
 
 ```bash
