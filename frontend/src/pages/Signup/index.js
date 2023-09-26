@@ -30,8 +30,6 @@ import { i18n } from "../../translate/i18n";
 import { openApi } from "../../services/api";
 import toastError from "../../errors/toastError";
 import moment from "moment";
-import logoDefault from "../../assets/logoLoginOption.png";
-const logo = process.env.REACT_APP_LOGO || logoDefault;
 
 const copyright = process.env.REACT_APP_COPYRIGHT || "";
 const copyrightYear = process.env.REACT_APP_COPYRIGHT_YEAR || "0000";
