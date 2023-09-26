@@ -1,10 +1,10 @@
-## Deploy Ubuntu 22.x
+#### Deploy Ubuntu 22.x
 
 ```bash
   sudo apt-get install -y libgbm-dev wget unzip fontconfig locales gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils git
 ```
 
-Instalar o pacote  build-essential:
+#### Instalar o pacote  build-essential:
 
 ```bash
 sudo apt-get install build-essential
@@ -14,7 +14,7 @@ sudo apt-get install build-essential
 sudo apt update && sudo apt upgrade
 ```
 
-Instale o node (16.x) e confirme se o comando do node -v e npm -v está disponível:
+#### Instale o node (16.x) e confirme se o comando do node -v e npm -v está disponível:
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -24,7 +24,7 @@ npm -v
 ```
 
 
-Instale o docker e adicione seu usuário ao grupo do docker:
+#### Instale o docker e adicione seu usuário ao grupo do docker:
 
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -36,28 +36,26 @@ sudo usermod -aG docker ${USER}
 sudo apt-get install docker-compose
 ```
 
-Instalar o Postgres Docker 
+#### Instalar o Postgres Docker 
 
 ```bash
 docker run -e TZ="America/Sao_Paulo" --name postgresql -e POSTGRES_USER=unkbot -e POSTGRES_PASSWORD=Suasenha -p 5432:5432 -d --restart=always -v /data:/var/lib/postgresql/data -d postgres
 ```
 
-Instalar o Redis Docker 
+#### Instalar o Redis Docker 
 
 ```bash
 docker run -e TZ="America/Sao_Paulo" --name redis-unkbot -p 6379:6379 -d --restart=always redis:latest redis-server --appendonly yes --requirepass "suaSenha"
 ```
 
- Criar chave para fazer o clone de repositório privado
-
-Clonar este repositório:
+#### Clonar este repositório:
 
 ```bash
 cd ~
 git clone https://github.com/hlobeu/whaticket_baileys.git
 ```
 
-Crie um arquivo .env de backend e preencha com as informações correta:
+#### Crie um arquivo .env de backend e preencha com as informações correta:
 
 ```bash
 cp whaticket_baileys/backend/.env.example whaticket_baileys/backend/.env
@@ -120,7 +118,7 @@ FACEBOOK_APP_SECRET=
 
 ```
 
-Executa o npm install , cria o build cria as tabela e insere os registro padrão
+#### Executa o npm install , cria o build cria as tabela e insere os registro padrão
 
 ```bash
 cd whaticket_baileys/backend
@@ -130,7 +128,7 @@ npm run db:migrate
 npm run db:seed
 ```
 
-Vá para a pasta frontend e instale as dependências:
+#### Vá para a pasta frontend e instale as dependências:
 
 ```bash
 cd ../frontend
@@ -150,7 +148,7 @@ npm install
 npm run build
 ```
 
-Instale o pm2 **com sudo** e inicie o backend com ele:
+#### Instale o pm2 **com sudo** e inicie o backend com ele:
 
 ```bash
 sudo npm install -g pm2
@@ -162,31 +160,31 @@ pm2 start server.js --name unkbot-frontend
 
 ```
 
-Iniciar pm2 após a reinicialização:
+#### Iniciar pm2 após a reinicialização:
 
 ```bash
 pm2 startup ubuntu -u `YOUR_USERNAME`
 ```
 
-Copie a última saída de linha do comando anterior e execute-o, é algo como:
+#### Copie a última saída de linha do comando anterior e execute-o, é algo como:
 
 ```bash
 sudo env PATH=\$PATH:/usr/bin pm2 startup ubuntu -u YOUR_USERNAME --hp /home/YOUR_USERNAM
 ```
 
-Instale o nginx:
+#### Instale o nginx:
 
 ```bash
 sudo apt install nginx
 ```
 
-Remova o site padrão do nginx:
+#### Remova o site padrão do nginx:
 
 ```bash
 sudo rm /etc/nginx/sites-enabled/default
 ```
 
-Crie o site para o Backend
+#### Crie o site para o Backend
 ```bash
 sudo nano /etc/nginx/sites-available/unkbot-backend
 ```
@@ -209,7 +207,7 @@ server {
 }
 ```
 
-Crie o site para o frontend
+#### Crie o site para o frontend
 
 ```bash
 sudo nano /etc/nginx/sites-available/unkbot-frontend
@@ -233,14 +231,14 @@ server {
 }
 ```
 
-Crie os links simbólicos para habilitar os sites:
+#### Crie os links simbólicos para habilitar os sites:
 
 ```bash
 sudo ln -s /etc/nginx/sites-available/unkbot-backend /etc/nginx/sites-enabled
 sudo ln -s /etc/nginx/sites-available/unkbot-frontend /etc/nginx/sites-enabled
 ```
 
-Vamos alterar a configuração do nginx para aceitar 20MB de corpo nas requisições:
+#### Vamos alterar a configuração do nginx para aceitar 20MB de corpo nas requisições:
 
 ```bash
 sudo nano /etc/nginx/nginx.conf
@@ -253,7 +251,7 @@ http {
 
 ```
 
-Teste a configuração e reinicie o nginx:
+#### Teste a configuração e reinicie o nginx:
 
 ```bash
 sudo nginx -t
@@ -262,21 +260,26 @@ sudo service nginx restart
 
 Agora, ative o SSL (https) nos seus sites para utilizar todas as funcionalidades da aplicação como notificações e envio de mensagens áudio. Uma forma fácil de o fazer é utilizar Certbot:
 
-Instale o certbor com snapd:
+#### Instale o certbor com snapd:
 
 ```bash
 sudo snap install --classic certbot
 ```
 
-Habilite SSL com nginx:
+#### Habilite SSL com nginx:
 
 ```bash
 sudo certbot --nginx
 ```
 
 
-URL WEBHOOK META:
+#### URL WEBHOOK META:
 
 ```bash
 https://api.seudominio.com.br/webhook/fb
 ```
+
+#### Dados de acesso
+
+User: admin@admin.com
+Password: 123456
