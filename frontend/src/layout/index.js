@@ -31,7 +31,7 @@ import AnnouncementsPopover from "../components/AnnouncementsPopover";
 
 import { socketConnection } from "../services/socket";
 import ChatPopover from "../pages/Chat/ChatPopover";
-import logoDefault from "../../assets/logoLoginOption.png";
+import logoDefault from "../assets/logoLoginOption.png";
 const logo = process.env.REACT_APP_LOGO || logoDefault;
 const drawerWidth = 300;
 
