@@ -19,17 +19,21 @@ const logo = process.env.REACT_APP_LOGO_LOGIN || logoDefault;
 const copyright = process.env.REACT_APP_COPYRIGHT || "";
 const copyrightYear = process.env.REACT_APP_COPYRIGHT_YEAR || "0000";
 const copyrightUrl = process.env.REACT_APP_COPYRIGHT_URL || "";
+const copyrightTxt = process.env.REACT_APP_COPYRIGHT_TXT || "";
 
 
 const Copyright = () => {
 	return (
 		<Typography variant="body2" color="textSecondary" align="center">
-			{"Copyright © "}{copyrightYear}{"- "}
+			{"Copyright © "}
+			{copyrightYear}
+			{"- "}
 			<Link color="inherit" href={copyrightUrl}>
 				{copyright}
 			</Link>{" "}
 			{new Date().getFullYear()}
-			{" EletroInfo - Desenvolvido por Alan Martines."}
+			{" "}
+			{copyrightTxt}
 		</Typography>
 	);
 };
