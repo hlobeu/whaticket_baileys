@@ -159,6 +159,7 @@ const SignUp = () => {
 										fullWidth
 										id="name"
 										label="Nome da Empresa"
+										required
 									/>
 								</Grid>
 
