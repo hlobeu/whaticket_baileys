@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface: QueryInterface) => {
     return Promise.all([
       queryInterface.addColumn("Plans", "value", {
-        type: DataTypes.INTEGER,
+        type: DataTypes.NUMERIC,
         allowNull: true,
         defaultValue: 199.99
       })
