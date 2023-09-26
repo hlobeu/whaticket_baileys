@@ -126,9 +126,6 @@ const SignUp = () => {
 	return (
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
-			<div>
-					<img style={{ margin: "0 auto", height: "120px", width: "100%" }} src={logo} alt="Whats" />
-			</div>
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}>
 					<LockOutlinedIcon />
