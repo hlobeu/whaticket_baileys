@@ -39,7 +39,7 @@ sudo apt-get install docker-compose
 #### Instalar o Postgres Docker 
 
 ```bash
-docker run -e TZ="America/Sao_Paulo" --name postgresql -e POSTGRES_USER=unkbot -e POSTGRES_PASSWORD=Suasenha -p 5432:5432 -d --restart=always -v /data:/var/lib/postgresql/data -d postgres
+docker run -e TZ="America/Sao_Paulo" --name postgresql -e POSTGRES_USER=unkbot -e POSTGRES_PASSWORD=Suasenha -e POSTGRES_DB=db_name -p 5432:5432 -d --restart=always -v /data:/var/lib/postgresql/data -d postgres
 ```
 
 #### Instalar o Redis Docker 
