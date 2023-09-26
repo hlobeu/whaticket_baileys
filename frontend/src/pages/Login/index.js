@@ -26,11 +26,12 @@ const Copyright = () => {
 		<Typography variant="body2" color="textSecondary" align="center">
 			{"Copyright © "}
 			{copyrightYear}
+			{"-"}
+			{new Date().getFullYear()}
 			{" - "}
 			<Link color="inherit" href={copyrightUrl}>
 				{copyright}
-			</Link>{" "}
-			{new Date().getFullYear()}
+			</Link>
 			{"."}
 		</Typography>
 	);
