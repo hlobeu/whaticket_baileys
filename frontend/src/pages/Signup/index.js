@@ -30,18 +30,28 @@ import { i18n } from "../../translate/i18n";
 import { openApi } from "../../services/api";
 import toastError from "../../errors/toastError";
 import moment from "moment";
-// const Copyright = () => {
-// 	return (
-// 		<Typography variant="body2" color="textSecondary" align="center">
-// 			{"Copyleft "}
-// 			<Link color="inherit" href="https://github.com/canove">
-// 				Canove
-// 			</Link>{" "}
-// 			{new Date().getFullYear()}
-// 			{"."}
-// 		</Typography>
-// 	);
-// };
+import logoDefault from "../../assets/logoLoginOption.png";
+const logo = process.env.REACT_APP_LOGO_LOGIN || logoDefault;
+
+const copyright = process.env.REACT_APP_COPYRIGHT || "";
+const copyrightYear = process.env.REACT_APP_COPYRIGHT_YEAR || "0000";
+const copyrightUrl = process.env.REACT_APP_COPYRIGHT_URL || "";
+
+const Copyright = () => {
+	return (
+		<Typography variant="body2" color="textSecondary" align="center">
+			{"Copyright © "}
+			{copyrightYear}
+			{"-"}
+			{new Date().getFullYear()}
+			{" - "}
+			<Link color="inherit" href={copyrightUrl}>
+				{copyright}
+			</Link>
+			{"."}
+		</Typography>
+	);
+};
 
 const useStyles = makeStyles(theme => ({
 	paper: {
@@ -116,6 +126,9 @@ const SignUp = () => {
 	return (
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
+			<div>
+					<img style={{ margin: "0 auto", height: "120px", width: "100%" }} src={logo} alt="Whats" />
+			</div>
 			<div className={classes.paper}>
 				<Avatar className={classes.avatar}>
 					<LockOutlinedIcon />
@@ -225,7 +238,7 @@ const SignUp = () => {
 					)}
 				</Formik>
 			</div>
-			<Box mt={5}>{/* <Copyright /> */}</Box>
+			<Box mt={5}>{ <Copyright /> }</Box>
 		</Container>
 	);
 };
