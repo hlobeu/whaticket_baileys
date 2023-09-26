@@ -14,7 +14,7 @@ import Container from "@material-ui/core/Container";
 import { i18n } from "../../translate/i18n";
 
 import { AuthContext } from "../../context/Auth/AuthContext";
-import logo from "../../assets/logoLoginOption.png";
+import logo from process.env.REACT_APP_LOGO_LOGIN || "../../assets/logoLoginOption.png";
 
 
 // const Copyright = () => {
